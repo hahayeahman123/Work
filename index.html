@@ -4,10 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+
+
+    <script>
+      const food = [
+        { id: 1, name: "Pizza", price: 10 },
+        { id: 2, name: "Burger", price: 7 },
+        { id: 3, name: "Sushi", price: 15 }
+      ];
+
+      document.querySelector('#app').innerHTML = food.map(item =>
+              `<a href="confirm.html?name=${encodeURIComponent(item.name)}&price=${item.price}">
+     ${item.name}
+   </a>: ${item.price}$`
+      ).join('<br>');
+    </script>
   </body>
 </html>

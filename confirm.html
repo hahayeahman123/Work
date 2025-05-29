@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+<h1>Order Confirmed</h1>
+<p id="details"></p>
+<a href="index.html">Back to menu</a>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const price = params.get('price');
+
+    if (name && price) {
+        document.getElementById('details').textContent = `You ordered: ${name} for $${price}`;
+    } else {
+        document.getElementById('details').textContent = 'No order details found.';
+    }
+</script>
+
+</body>
+</html>
